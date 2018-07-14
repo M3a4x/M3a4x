@@ -1,31 +1,55 @@
 
-const Discord = require("discord.js");
-const client = new Discord.Client();
+const Discord = require('discord.js');
+const PREFIX = "$"
+const KiNg66S = new Discord.Client();
 
 
 
-client.on("ready", () => {
-console.log('By : M3a4x');
-console.log('ready');
-client.user.setPresence({
-  status: 'dnd',
-  game: { 
-     type: 0,
-     name: 'HanoMC Programing.',
-     details: `للهم أختم بالصالحات أعمالنا`,
-     url: 'http://twitch.tv/mjrmqm',
-     state: `في ڪڸ سن? هنآڪ شهر يجعڸني أإڪثر قرباً من ربي {شهر رمضآن}`,
-    application_id: '467718532352835595',
-     assets: {
-        small_image: `https://discordapp.com/channels/415630192342728714/467322179193798666/467727130147422208`,
-        small_text: 'Play.HanoMC.Net',
-        large_image: `https://discordapp.com/channels/415630192342728714/467322179193798666/467727138754265088`,
-        large_text: `Play.HanoMC.Net` }
+KiNg66S.on('message', message => {
+  if (!message.content.startsWith(PREFIX)) return;
+  var args = message.content.split(' ').slice(1);
+  var argresult = args.join(' ');
+  if (message.author.id !== "441683368418082836") return;
 
-  }
-    });
+  
+  if (message.content.startsWith(PREFIX + 'setwatch')) {
+  KiNg66S.user.setActivity(argresult, {type: 'WATCHING'})
+     console.log('test' + argresult);
+    message.channel.sendMessage(`Watch Now: **${argresult}`)
+} 
+
+ 
+  if (message.content.startsWith(PREFIX + 'setlis')) {
+  KiNg66S.user.setActivity(argresult, {type: 'LISTENING'})
+     console.log('test' + argresult);
+    message.channel.sendMessage(`LISTENING Now: **${argresult}`)
+} 
+
+
+if (message.content.startsWith(PREFIX + 'setname')) {
+  KiNg66S.user.setUsername(argresult).then
+      message.channel.sendMessage(`Username Changed To **${argresult}**`)
+  return message.reply("You Can change the username 2 times per hour");
+} 
+
+if (message.content.startsWith(PREFIX + 'setavatar')) {
+  KiNg66S.user.setAvatar(argresult);
+   message.channel.sendMessage(`Avatar Changed Successfully To **${argresult}**`);
+}
+
+if (message.content.startsWith(PREFIX + 'setstream')) {
+  KiNg66S.user.setGame(argresult, "https://www.twitch.tv/KiNg66S");
+     console.log('test' + argresult);
+    message.channel.sendMessage(`Streaming: **${argresult}`)
+} 
+if (message.content.startsWith(PREFIX + 'setplay')) {
+  KiNg66S.user.setGame(argresult);
+     console.log('test' + argresult);
+    message.channel.sendMessage(`Playing: **${argresult}`)
+} 
+
+
+
 });
 
-
-
-client.login("MTk0NTU5ODU3NTM2MjcwMzM2.DhvHpA.XPoBxVbieDbx5LDnvy8CXxzecyU")
+KiNg66S.login("MTk0NTU5ODU3NTM2MjcwMzM2.DhvHpA.XPoBxVbieDbx5LDnvy8CXxzecyU");
