@@ -17,9 +17,9 @@ client.user.setPresence({
      state: `في ڪڸ سن? هنآڪ شهر يجعڸني أإڪثر قرباً من ربي {شهر رمضآن}`,
     application_id: '467718532352835595',
      assets: {
-        small_image: `444859352093032449`,
+        small_image: `avatar`,
         small_text: 'Play.HanoMC.Net',
-        large_image: `444864778465181706`,
+        large_image: `hanomc`,
         large_text: `Play.HanoMC.Net` }
 
   }
